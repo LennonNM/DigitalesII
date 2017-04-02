@@ -68,29 +68,7 @@ module probador8(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 			//Enviando flancos activos en CLK
 			#8 ;
 
-        //Prueba #5 rotacion circular a la derecha
-		    //Establece modo de Carga en Paralelo
-    /*  #1 ENB <= 1'b1;
-  		#1 MODO[1:0] <= 2'b10;
-			DIR <= 1'b1;
-			S_IN <= 1'b1;
-			//D[3:0] <= 4'b0000; //Ya se probo en las pruebas anteriores
-			D[3:0] <= 4'b0001;
-			#2D[3:0] <= 4'b0010; //Cambiando Valor
-      #2D[3:0] <= 4'b0011; //Cambiando Valor
-			#2D[3:0] <= 4'b0100; //Cambiando Valor
-			#2D[3:0] <= 4'b0101; //Cambiando Valor
-			#2D[3:0] <= 4'b0111; //Cambiando Valor
-			#2D[3:0] <= 4'b1000; //Cambiando Valor
-			#2D[3:0] <= 4'b1001; //Cambiando Valor
-			//D[3:0] <= 4'b1010; //Ya se probo en las pruebas anteriores
-			//D[3:0] <= 4'b1011; //Ya se probo en las pruebas anteriores
-			#2D[3:0] <= 4'b1100; //Cambiando Valor
-			//D[3:0] <= 4'b1101; //Ya se probo en las pruebas anteriores
-			#2D[3:0] <= 4'b1110; //Cambiando Valor
-			#2D[3:0] <= 4'b1111; //Cambiando Valor
-			//Ciclo extra para ver ultimo cambio
-*/
-		    #10 $finish;
+
+		    #15 $finish;
 		end
 endmodule
