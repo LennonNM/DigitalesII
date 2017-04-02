@@ -1,5 +1,6 @@
 `include "reg_desp.v"
 `include "mux.v"
+`include "mux3.v"
 
 module reg8 (Q8, S_OUT8, CLK8, ENB8, DIR8, S_IN8, MODO8, D8);
 
@@ -21,7 +22,7 @@ module reg8 (Q8, S_OUT8, CLK8, ENB8, DIR8, S_IN8, MODO8, D8);
     assign wENB8 = ENB8;
     assign wDIR8 = DIR8;
     assign wS_IN8 = S_IN8;
-    assign wMODO8 = MODO8;
+    assign wMODO8 = (MODO8[1])?MODO8:2'b0;
     assign wD8 = D8;
 
     assign wR8Q0 = wQ8[0];
@@ -33,7 +34,7 @@ module reg8 (Q8, S_OUT8, CLK8, ENB8, DIR8, S_IN8, MODO8, D8);
     reg_desp reg1(wQ8[7:4], , wCLK8, wENB8, wDIR8, wR1SIN, wMODO8, wD8[7:4]);
     reg_desp reg8(wQ8[3:0], , wCLK8, wENB8, wDIR8, wR8SIN, wMODO8, wD8[3:0]);
     mux mux1(wR8Q3, wS_IN8, wDIR8, wR1SIN);
-    mux mux8(wS_IN8, wR1Q0, wDIR8, wR8SIN);
+    mux3 mux8(wS_IN8, wR1Q0, wR1Q3, wDIR8, MODO8, wR8SIN);
     mux muxOUT(wR1Q3, wR8Q0, wDIR8, wS_OUT8);
 
   endmodule

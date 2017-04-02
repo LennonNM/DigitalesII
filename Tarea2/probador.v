@@ -17,9 +17,9 @@ module probador(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 	initial begin
 		//Prueba #1 rotacion a la izquierda
 		    //Habilita lectura del modo
-			ENB <= 1'b1;
+			#1 ENB <= 1'b1;
 		    //Establece modo de Carga en Paralelo
-		  #1 MODO[1:0] <= 2'b10;
+		  #2 MODO[1:0] <= 2'b10;
 			DIR <= 1'b0;
 		  S_IN <= 1'b1;
 			D[3:0] <= 4'b0;
@@ -32,7 +32,7 @@ module probador(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 		//Prueba #2 rotacion a la derecha
 		    //Establece modo de Carga en Paralelo
       #1 ENB <= 1'b1;
-		  #2 MODO[1:0] <= 2'b10;
+		  #3 MODO[1:0] <= 2'b10;
 			DIR <= 1'b1;
 			S_IN <= 1'b0;
 			D[3:0] <= 4'b1010;
@@ -44,8 +44,8 @@ module probador(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 
 		//Prueba #3 rotacion circular a la izquierda
 		    //Establece modo de Carga en Paralelo
-      #1 ENB <= 1'b1;
-      #1 MODO[1:0] <= 2'b10;
+      #2 ENB <= 1'b1;
+      #2 MODO[1:0] <= 2'b10;
 			DIR <= 1'b0;
 			S_IN <= 1'b1;
 			D[3:0] <= 4'b1011;
@@ -57,7 +57,7 @@ module probador(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 
         //Prueba #4 rotacion circular a la derecha
 		    //Establece modo de Carga en Paralelo
-      #1 ENB <= 1'b1;
+      #2 ENB <= 1'b1;
   		#2 MODO[1:0] <= 2'b10;
 			DIR <= 1'b1;
 			S_IN <= 1'b1;

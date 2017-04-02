@@ -27,11 +27,11 @@ module probador8(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 			#2 MODO[1:0] <= 2'b0;
       #1 ENB <= 1'b0;
 			//Enviar 4 flancos activos en CLK, luego da otros flancos para percibir salida final de S_OUT
-			#8 ;
+			#7 ;
 
 		//Prueba #2 rotacion a la derecha
 		    //Establece modo de Carga en Paralelo
-      #1 ENB <= 1'b1;
+      ENB <= 1'b1;
 		  #2 MODO[1:0] <= 2'b10;
 			DIR <= 1'b1;
 			S_IN <= 1'b1;

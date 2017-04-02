@@ -1,5 +1,6 @@
 `include "reg_desp.v"
 `include "mux.v"
+`include "mux3.v"
 
 module reg_desp_32(Q32, S_OUT32, CLK32, ENB32, DIR32, S_IN32, MODO32, D32);
 
