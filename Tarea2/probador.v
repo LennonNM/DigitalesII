@@ -45,7 +45,7 @@ module probador(Q, S_OUT, CLK, ENB, DIR, S_IN, MODO, D);
 		//Prueba #3 rotacion circular a la izquierda
 		    //Establece modo de Carga en Paralelo
       #2 ENB <= 1'b1;
-      #2 MODO[1:0] <= 2'b10;
+      #3 MODO[1:0] <= 2'b10;
 			DIR <= 1'b0;
 			S_IN <= 1'b1;
 			D[3:0] <= 4'b1011;
