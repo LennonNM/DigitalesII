@@ -2,14 +2,13 @@
   C = iverilog
   R = vvp
   S = gtkwave
- 
-# Definición de los archivos a usar 
-  TARGET = NAND
-  TARGET32 = registro32
-  
-  default: nand
 
-  nand: $(TARGET)
+# Definición de los archivos a usar
+  TARGET = NAND.o
+
+  default: all
+
+  all:
 	$(C) -o $(TARGET) NAND.v
 	$(R) $(TARGET)
 	#$(S) .vcd
