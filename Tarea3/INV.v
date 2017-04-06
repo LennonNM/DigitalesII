@@ -12,16 +12,17 @@
 
   //Definicion de los retardos para el inversor
     `define tpdmin_inv 1.2
-    //`define tpdtyp_inv Hoja del fabricante no especifica
+    `define tpdtyp_inv 3.1//Hoja del fabricante no especifica
     `define tpdmax_inv 5
 
-  module NAND (input A, output Y);
+  module INV (input A, output Y);
 
     integer cont_inv = 0;
 
-    assign #(`tpdmin_inv:`tpdmax_inv) Y = ~A;
+    assign #(`tpdmin_inv:`tpdtyp_inv:`tpdmax_inv) Y = ~A;
 
     //Se consume energía en las transiciones de 0 a 1 de la salida
     always @ ( posedge Y ) begin
       cont_inv = cont_inv +1;
     end
+endmodule

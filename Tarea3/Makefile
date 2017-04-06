@@ -4,14 +4,14 @@
   S = gtkwave
 
 # Definición de los archivos a usar
-  TARGET = NAND.o
+  TARGET = libreria.o
 
   default: all
 
   all:
-	$(C) -o $(TARGET) NAND.v
+	$(C) -o $(TARGET) test_bench.v probador.v
 	$(R) $(TARGET)
-	#$(S) .vcd
+	#$(S) $(TARGET).vcd
 
   clean:
 	rm -rf *.o *.out *.vcd

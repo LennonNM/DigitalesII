@@ -11,12 +11,12 @@
   `timescale 1ns/1ps
 
   //Definicion de los retardos para la compuerta NOR
-  `define tpdmin_nor 1 /*Hoja del fabricante no especifica,
-                        se puso arbitrariamente*/
+  `define tpdmin_nor 1 //Hoja del fabricante no especifica,
+                        //se puso arbitrariamente*/
   `define tpdtyp_nor 10
   `define tpdmax_nor 15
 
-  module NAND (input A, input B, output Y);
+  module NOR (input A, input B, output Y);
 
     integer cont_nor = 0;
 

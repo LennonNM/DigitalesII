@@ -12,9 +12,9 @@
 `timescale 1ns/1ps
 
 //Definicion de los retardos para el Mux
-`define tpdmin_nand 1
-`define tpdtyp_nand 3.7
-`define tpdmax_nand 6.5
+`define tpdmin_mux 1
+`define tpdtyp_mux 3.7
+`define tpdmax_mux 6.5
 
 module MUX (input S, input I1, input I2, output Y);
 

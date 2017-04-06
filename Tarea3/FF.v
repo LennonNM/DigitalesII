@@ -20,7 +20,7 @@
   //`define tpdtyp_ff
   `define tpdmax_ff 48
 
-  module MUX (input NCLR, input CLK, input D, output Q);
+  module FF (input NCLR, input CLK, input D, output Q);
 
     integer cont_ff = 0;
     reg Q0, Q;
