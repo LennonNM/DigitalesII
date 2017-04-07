@@ -19,7 +19,7 @@
 
     integer cont_inv = 0;
 
-    assign #(`tpdmin_inv:`tpdtyp_inv:`tpdmax_inv) Y = ~A;
+    assign /*#(`tpdmin_inv:`tpdtyp_inv:`tpdmax_inv)*/ #(1.2:3.1:5) Y = ~A;
 
     //Se consume energía en las transiciones de 0 a 1 de la salida
     always @ ( posedge Y ) begin

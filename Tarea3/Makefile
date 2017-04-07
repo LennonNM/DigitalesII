@@ -4,14 +4,14 @@
   S = gtkwave
 
 # Definición de los archivos a usar
-  TARGET = libreria.o
+  TARGET = libreria
 
   default: all
 
   all:
-	$(C) -o $(TARGET) test_bench.v probador.v
-	$(R) $(TARGET)
-	#$(S) $(TARGET).vcd
+	$(C) -o $(TARGET).o -Ttyp test_bench.v
+	$(R) $(TARGET).o
+	$(S) $(TARGET).vcd
 
   clean:
 	rm -rf *.o *.out *.vcd

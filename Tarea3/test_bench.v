@@ -3,26 +3,29 @@
 `include "NOR.v"
 `include "MUX.v"
 `include "FF.v"
+`include "probador.v"
+`include "vigilador.v"
 
-module test_bench;
+module test_bench ();
 
-  //NAND
-  wire A_NAND, B_NAND, Y_NAND;
-  //NOR
-  wire A_NOR, B_NOR, Y_NOR;
-  //INV
-  wire A_INV, Y_INV;
+  //Entradas compuertas logicas
+  wire wA, wB;
   //MUX
   wire wS, wI1, wI2, Y_MUX;
   //FF
   wire wNCLR, wCLK, wD, wQ;
+  //Salidas compuertas
+  wire wNAND, wNOR, wINV;
+  //Alarma
+  wire wAlarm;
 
-  NAND nand1(.A(A_NAND), .B(B_NAND), .Y(Y_NAND));
-  NOR nor1(.A(A_NOR), .B(B_NOR), .Y(Y_NOR));
-  INV inv1(.A(A_INV), .Y(Y_INV));
+  NAND nand1(.A(wA), .B(wB), .Y(wNAND));
+  NOR nor1(.A(wA), .B(wB), .Y(wNOR));
+  INV inv1(.A(wA), .Y(wINV));
   MUX mux1(.S(wS), .I1(wI1), .I2(wI2), .Y(Y_MUX));
   FF ff1(.NCLR(wNCLR), .CLK(wCLK), .D(wD), .Q(wQ));
-	probador libreria();
+	probador libreria(.A(wA), .B(wB), .S(wS), .I1(wI1), .I2(wI2), .NCLR(wNCLR), .CLK(wCLK), .D(wD));
+  vigilador prueba(.CLK(wCLK), .D_FF(wD), .Alarm(wAlarm));
 
 	initial
 	    begin

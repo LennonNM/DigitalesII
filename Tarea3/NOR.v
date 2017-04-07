@@ -20,7 +20,7 @@
 
     integer cont_nor = 0;
 
-    assign #(`tpdmin_nor:`tpdtyp_nor:`tpdmax_nor) Y = ~|{A,B};
+    assign /*#(`tpdmin_nor:`tpdtyp_nor:`tpdmax_nor)*/ #(1:10:15) Y = ~|{A,B};
 
     //Se consume energía en las transiciones de 0 a 1 de la salida
     always @ ( posedge Y ) begin

@@ -11,15 +11,15 @@
 `timescale 1ns/1ps
 
 //Definicion de los retardos para la compuerta NAND
-`define tpdmin_nand 1
-`define tpdtyp_nand 3.7
-`define tpdmax_nand 6.5
+//`define tpdmin_nand 1
+//`define tpdtyp_nand 3.7
+//`define tpdmax_nand 6.5
 
 module NAND (input A, input B, output Y);
 
   integer cont_nand = 0;
 
-  assign #(`tpdmin_nand:`tpdtyp_nand:`tpdmax_nand) Y = ~&{A,B};
+  assign /*#(`tpdmin_nand:`tpdtyp_nand:`tpdmax_nand)*/ #(1:3.7:6.5) Y = ~&{A,B};
 
   //Se consume energía en las transiciones de 0 a 1 de la salida
   always @ ( posedge Y ) begin

@@ -1,4 +1,5 @@
-//`include "reg_desp_32.v"
+`include "reg_desp_32.v"
+`include "probador_32.v"
 
 module test_bench;
 

@@ -18,31 +18,35 @@
   //Definicion de los retardos para el Mux
   //`define tpdmin_ff No se mencionan
   //`define tpdtyp_ff
-  `define tpdmax_ff 48
+  //`define tpdmax_ff 48
 
   module FF (input NCLR, input CLK, input D, output Q);
 
     integer cont_ff = 0;
     reg Q0, Q;
 
+    initial begin
+      Q0 <= 1'b0;
+    end
+
     always @ ( * ) begin
             if (NCLR == 1'b0) begin //~CLR asincrono
-              Q <= 1'b0;
-            end
-            else begin
+              #48/*`tpdmax_ff*/ Q <= 1'b0;
+              Q0 <= 1'b0;
+            end else begin
               if (CLK == 1'b0) begin
-                Q <= Q0;
+                #48/*`tpdmax_ff*/ Q <= Q0;
               end
             end
     end
-    always @ ( posedge CLK ) begin
-          Q <= D;
+    always @ ( posedge CLK && NCLR == 1'b1) begin
+          #48/*`tpdmax_ff*/ Q <= D;
+          Q0 <= Q;
     end
 
     //Se consume energía en las transiciones de 0 a 1 de la salida
     always @ ( posedge Q ) begin
       cont_ff = cont_ff +1;
     end
-
 
   endmodule
