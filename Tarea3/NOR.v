@@ -1,7 +1,7 @@
 /*Componente: SN74LS02 Quadruple 2-Input Positive-NOR Gates
 	Costo: Parte SN74LS02D a $0.22, 1000 unidades.
   Tiempos de propagación de entradas A, B hacia salida Y de la compuerta
-  SN54AHC00, para C_load = 15 pF y Vcc = 5 V ± 0.5 V:
+  SN74LS02D, para C_load = 15 pF y Vcc = 5 V ± 0.5 V:
     t_min = - ns
     t_typ = 10 ns
     t_max = 15 ns

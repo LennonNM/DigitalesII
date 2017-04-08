@@ -3,7 +3,7 @@
   La Hoja del Fabricante pone solo un tiempo de propagacion para describir el paso
   de la señal desde alguna de las entradas a la salida, para C_load = 15 pF y
   Vcc = 3 V a 3.6 V:
-    t_min = 1.p ns
+    t_min = 1.9 ns
     t_typ = 3.2 ns
     t_max = 4.5 ns
     segun  la hoja del fabricante, los rangos de tiempos son iguales para paso

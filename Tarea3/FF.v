@@ -7,6 +7,7 @@
     t_max = 48 ns
     segun  la hoja del fabricante, los rangos de tiempos son iguales para paso
     de nivel bajo a alto como de alto a bajo.
+    Para estas condiciones se describe ademas un fmin = 18 MHz
 
   Tiempo de set-up a Vcc = 4.5 V, tanto para Data como para ~CLR
     tsu = 30 ns
