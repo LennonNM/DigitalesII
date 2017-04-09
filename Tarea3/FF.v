@@ -24,25 +24,16 @@
   module FF (input NCLR, input CLK, input D, output Q);
 
     integer cont_ff = 0;
-    reg Q0, Q;
+    reg Q;
 
-    initial begin
-      Q0 <= 1'b0;
-    end
 
-    always @ ( * ) begin
-            if (NCLR == 1'b0) begin //~CLR asincrono
-              #48/*`tpdmax_ff*/ Q <= 1'b0;
-              Q0 <= 1'b0;
-            end else begin
-              if (CLK == 1'b0) begin
-                #48/*`tpdmax_ff*/ Q <= Q0;
-              end
-            end
-    end
-    always @ ( posedge CLK && NCLR == 1'b1) begin
-          #48/*`tpdmax_ff*/ Q <= D;
-          Q0 <= Q;
+
+    always @ ( posedge CLK ) begin
+      if (NCLR == 1'b1) begin
+        #48 Q<= D;
+      end else begin
+        #48 Q <= 1'b0;
+      end
     end
 
     //Se consume energía en las transiciones de 0 a 1 de la salida
