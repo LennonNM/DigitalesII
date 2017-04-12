@@ -26,7 +26,7 @@ assign wW = tCLK - tD;
 //Verificacion del tiempo set-up
 always @ ( posedge CLK ) begin
   tCLK <= $realtime;
-  if((tCLK - tD) < 32'd30) begin
+  if(wW < 32'd30) begin
     Alarm <= 1'b1;
   end else begin
     Alarm <= 1'b0;

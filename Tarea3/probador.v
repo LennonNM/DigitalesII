@@ -1,16 +1,23 @@
 module probador(A, B, S, I1, I2, NCLR, CLK, D);
 
-    output reg A, B, S, I1, I2, NCLR, CLK, D, CLK2;
+    output reg A, B, S, I1, I2, NCLR, CLK, D;
     // Configuracion del reloj normal
 		initial begin
 				CLK = 0;
 		end
 
 		always begin
-				#1 CLK = ~CLK;
+				#40 CLK = ~CLK;
 		end
 
     initial begin
+    //FF
+      D <= 1'b1;
+      NCLR <= 1'b0;
+      #75 D <= 1'b0;
+      #50 NCLR <= 1'b1;
+      #55 D <= 1'b1;
+
     //Compuertas Logicas
       A <= 1'b1;
       B <= 1'b0;
@@ -28,15 +35,7 @@ module probador(A, B, S, I1, I2, NCLR, CLK, D);
       S <= 1'b0;
       #15 S <= 1'b1;
 
-    //FF
-    #15;
-      D <= 1'b1;
-      NCLR <= 1'b1;
-      #50 D <= 1'b0;
-      #50 D <= 1'b1;
-      NCLR <= 1'b0;
-
-      #25 $finish;
+      #100 $finish;
     end
 
 endmodule
