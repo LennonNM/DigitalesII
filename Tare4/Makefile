@@ -18,5 +18,10 @@ reg32:
 	$(R) $(TARGET1).o
 	$(S) $(TARGET1).vcd
 
+comp:
+	$(C) -o $(TARGET1).o -Ttyp test_bench_comp.v
+	$(R) $(TARGET1).o
+	$(S) $(TARGET1).vcd
+
 clean:
 	rm -rf *.o *.out *.vcd
