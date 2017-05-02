@@ -6,7 +6,7 @@
 # Definición de los archivos a usar
   TARGET1 = registro4
 
-  default: reg4
+  default: comp
 
 reg4:
 	$(C) -o $(TARGET1).o -Ttyp test_bench_reg4.v
@@ -20,6 +20,11 @@ reg32:
 
 comp:
 	$(C) -o $(TARGET1).o -Ttyp test_bench_comp.v
+	$(R) $(TARGET1).o
+	$(S) $(TARGET1).vcd
+
+pot:
+	$(C) -o $(TARGET1).o -Ttyp test_bench_pot.v
 	$(R) $(TARGET1).o
 	$(S) $(TARGET1).vcd
 
