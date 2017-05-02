@@ -8,10 +8,15 @@
 
   default: reg4
 
-  reg4:
-	$(C) -o $(TARGET1).o -Ttyp test_bench.v
+reg4:
+	$(C) -o $(TARGET1).o -Ttyp test_bench_reg4.v
 	$(R) $(TARGET1).o
 	$(S) $(TARGET1).vcd
 
-  clean:
+reg32:
+	$(C) -o $(TARGET1).o -Ttyp test_bench_reg32.v
+	$(R) $(TARGET1).o
+	$(S) $(TARGET1).vcd
+
+clean:
 	rm -rf *.o *.out *.vcd
