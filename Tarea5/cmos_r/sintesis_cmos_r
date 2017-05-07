@@ -1,0 +1,24 @@
+# read design 
+read_verilog reg_desp_32_r.v
+
+# elaborate design hierarchy
+#hierarchy -check -top reg_desp_32_r
+
+# the high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# mapping to internal cell library
+techmap; opt
+
+# mapping flip-flops to mycells.lib
+dfflibmap -liberty cmos_r_cells.lib
+
+# mapping logic to mycells.lib
+abc -liberty cmos_r_cells.lib
+
+# cleanup
+clean
+
+# write synthesized design
+write_verilog reg_32_cmos_r.v
+
